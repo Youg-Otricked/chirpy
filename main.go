@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -12,6 +12,6 @@ func main() {
 		Handler: servemux,
 		Addr:    ":8080",
 	}
-	err := server.ListenAndServe()
-	fmt.Println(err)
+	log.Printf("Serving on address: localhost%s\n", server.Addr)
+	log.Fatal(server.ListenAndServe())
 }
